@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "sensor": {
+      "dose": { "default": "mdi:radioactive" },
+      "cpm": { "default": "mdi:radioactive" },
+      "aqi": {
+        "default": "mdi:air-filter",
+        "state": {
+          "good": "mdi:emoticon-happy-outline",
+          "fair": "mdi:emoticon-outline",
+          "moderate": "mdi:emoticon-neutral-outline",
+          "poor": "mdi:emoticon-sad-outline",
+          "very_poor": "mdi:emoticon-cry-outline",
+          "extremely_poor": "mdi:emoticon-dead-outline"
+        }
+      },
+      "ch2o": { "default": "mdi:molecule" },
+      "voc": { "default": "mdi:molecule" },
+      "vocaqi": { "default": "mdi:air-filter" },
+      "o3": { "default": "mdi:molecule" },
+      "radon": { "default": "mdi:radioactive" },
+      "voltage": { "default": "mdi:flash" },
+      "duty": { "default": "mdi:sine-wave" },
+      "uptime": { "default": "mdi:timer-outline" },
+      "source": {
+        "default": "mdi:lan",
+        "state": {
+          "local": "mdi:lan",
+          "cloud": "mdi:cloud-outline"
+        }
+      }
+    }
+  }
+}

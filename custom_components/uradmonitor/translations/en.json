@@ -1,0 +1,119 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Where to read your uRADMonitor units",
+        "menu_options": {
+          "mode_both": "Local and cloud — local units first, the cloud for everything else and as a fallback",
+          "mode_local": "Local only — read units on your network; no account or internet needed",
+          "mode_cloud": "Cloud only — read every unit on your uRADMonitor account over the internet"
+        }
+      },
+      "reconfigure": {
+        "title": "Where to read your uRADMonitor units",
+        "menu_options": {
+          "mode_both": "Local and cloud — local units first, the cloud for everything else and as a fallback",
+          "mode_local": "Local only — read units on your network; no account or internet needed",
+          "mode_cloud": "Cloud only — read every unit on your uRADMonitor account over the internet"
+        }
+      },
+      "cloud": {
+        "title": "uRADMonitor account",
+        "description": "Use the API Credentials on your uRADMonitor profile (uradmonitor.com/wp-admin/profile.php). Every unit you own, or were given access to, is added.",
+        "data": {
+          "user_id": "User ID",
+          "user_key": "User Key"
+        },
+        "data_description": {
+          "user_id": "The API user-id.",
+          "user_key": "The API key."
+        }
+      },
+      "local": {
+        "title": "Local units",
+        "description": "Add the address of each unit on your network to read its /j page directly, e.g. 192.168.1.50 or 192.168.1.50:8080. Local readings are used while the unit answers; the cloud fills in AQI and anything else. Give each unit a fixed IP (a DHCP reservation on your router).",
+        "data": {
+          "locals": "Unit addresses"
+        },
+        "data_description": {
+          "locals": "Optional with the cloud. Leave empty to read only the cloud."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in to uRADMonitor again",
+        "description": "uRADMonitor rejected the saved API Credentials. Copy the API user-id and API key again from your profile (uradmonitor.com/wp-admin/profile.php).",
+        "data": {
+          "user_id": "User ID",
+          "user_key": "User Key"
+        },
+        "data_description": {
+          "user_id": "The API user-id.",
+          "user_key": "The API key."
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "uRADMonitor rejected the User ID or User Key. Copy the API user-id and API key again from your profile's API Credentials.",
+      "cannot_connect": "Can't reach uRADMonitor: {details}",
+      "cloud_error": "{details}",
+      "invalid_address": "{details}",
+      "no_local": "Add at least one unit address, or pick a source with the cloud.",
+      "cannot_connect_local": "{address}: {details}",
+      "unknown": "Unexpected error. See the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This uRADMonitor account or unit address is already set up.",
+      "reauth_successful": "Signed in again.",
+      "reconfigure_successful": "Saved. Reading your units now."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "uRADMonitor polling",
+        "data": {
+          "cloud_interval": "Read the cloud every",
+          "local_interval": "Read local units every"
+        },
+        "data_description": {
+          "cloud_interval": "At least 120 seconds. Units upload about once a minute; please keep the load on uRADMonitor's free API light.",
+          "local_interval": "At least 10 seconds."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "dose": { "name": "Radiation dose" },
+      "cpm": { "name": "Radiation" },
+      "aqi": {
+        "name": "Air quality index",
+        "state": {
+          "good": "Good",
+          "fair": "Fair",
+          "moderate": "Moderate",
+          "poor": "Poor",
+          "very_poor": "Very poor",
+          "extremely_poor": "Extremely poor"
+        }
+      },
+      "ch2o": { "name": "Formaldehyde" },
+      "voc": { "name": "VOC resistance" },
+      "vocaqi": { "name": "VOC index" },
+      "o3": { "name": "Ozone" },
+      "noise": { "name": "Noise" },
+      "radon": { "name": "Radon" },
+      "voltage": { "name": "Tube voltage" },
+      "duty": { "name": "Duty cycle" },
+      "uptime": { "name": "Uptime" },
+      "source": {
+        "name": "Data source",
+        "state": {
+          "local": "Local",
+          "cloud": "Cloud"
+        }
+      },
+      "last_seen": { "name": "Last seen" }
+    }
+  }
+}
