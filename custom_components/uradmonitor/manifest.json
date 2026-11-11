@@ -1,13 +1,20 @@
 {
   "domain": "uradmonitor",
   "name": "uRADMonitor",
-  "codeowners": ["@brientim"],
+  "categories": [
+    "sensors.air_quality"
+  ],
+  "codeowners": [
+    "@brientim"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/brientim/uradmonitor-ha",
   "integration_type": "hub",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/brientim/uradmonitor-ha/issues",
-  "loggers": ["custom_components.uradmonitor"],
+  "loggers": [
+    "custom_components.uradmonitor"
+  ],
   "requirements": [],
   "version": "1.0.0"
 }
